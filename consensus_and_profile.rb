@@ -39,14 +39,12 @@ h = dnaHash.values
 
 # Default matrix size filled with zeros
 profileMatrix = Array.new(4,0) {Array.new(h[0].length,0)}
-#puts profileMatrix.inspect
 i_cnt = 0
 j_cnt = 0
 
 h.each do |i|
   j_cnt = 0
   i.each_char do |j|
-    #print j.class
     profileMatrix[0][j_cnt] += 1 if j == 'A'
     profileMatrix[1][j_cnt] += 1 if j == 'C'
     profileMatrix[2][j_cnt] += 1 if j == 'G'
@@ -54,14 +52,10 @@ h.each do |i|
     j_cnt += 1
   end
   i_cnt += 1
-  #puts " "
 end
-
-#puts profileMatrix.inspect
 
 profileTranspose = Array.new()
 profileTranspose = profileMatrix.transpose
-#puts profileTranspose.inspect
 
 consensus = Array.new()
 profileTranspose.each do |e|
@@ -79,6 +73,6 @@ profileMatrix.each do |e|
     a = e.inspect.gsub '[', ''
     a = a.gsub ']', ''
     a = a.gsub ',', ''
-    puts baseArr[i_cnt] + ': ' + a #e.inspect.gsub '[', ''
+    puts baseArr[i_cnt] + ': ' + a
     i_cnt += 1
 end
